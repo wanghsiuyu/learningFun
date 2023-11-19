@@ -16,7 +16,6 @@ function App() {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   }
 
-  // 播放掃描成功的聲音
 
 
   return (
