@@ -1,38 +1,28 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from "react";
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 
-import React from 'react'
-import { TouchableOpacity, View, Text, SafeAreaView, ScrollView, StatusBar, useColorScheme } from 'react-native'
-import { Colors, Header } from 'react-native/Libraries/NewAppScreen'
+import {
+  MainLayout
+} from "./src/screens";
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark'
+const Stack = createStackNavigator()
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  }
-
-
-
+const App = () => {
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false
+        }}
+        initialRouteName={'Dashboard'}
+      >
+        <Stack.Screen
+          name="Dashboard"
+          component={MainLayout}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
